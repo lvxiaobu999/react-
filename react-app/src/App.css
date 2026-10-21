@@ -1,0 +1,281 @@
+/* 演示入口与各 Demo 共用的最小样式；主题变量来自 index.css。 */
+
+.hub {
+  text-align: left;
+  padding: 8px clamp(16px, 4vw, 48px) 48px;
+}
+
+.hub-header h1 {
+  font-size: 32px;
+  letter-spacing: -0.5px;
+  margin: 24px 0 8px;
+}
+
+.hub-header p {
+  margin-bottom: 20px;
+}
+
+.hub-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.hub-nav button {
+  font: inherit;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.hub-nav button:hover {
+  border-color: var(--accent-border);
+  color: var(--text-h);
+}
+
+.hub-nav button.active {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--text-h);
+}
+
+.hub-main h2 {
+  margin: 0 0 4px;
+  font-size: 26px;
+}
+
+.hub-src {
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+/* ---- Demo 通用 ---- */
+
+.demo-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  align-items: start;
+}
+
+.demo-case {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.demo-case h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+
+.demo-case-ok {
+  border-color: #3aa76d;
+}
+
+.demo-case-bad {
+  border-color: #d16060;
+}
+
+.demo-panel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  background: var(--code-bg);
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--text-h);
+}
+
+.demo-note {
+  font-size: 15px;
+  opacity: 0.85;
+  margin: 0 0 8px;
+}
+
+.demo-log {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.demo-log li {
+  background: var(--code-bg);
+  border-radius: 6px;
+  padding: 4px 10px;
+}
+
+.demo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.demo-list li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.demo-item-label {
+  min-width: 72px;
+  color: var(--text-h);
+}
+
+.demo-list input[type='text'] {
+  flex: 1;
+  font: inherit;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+}
+
+.demo-check {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.demo-timer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.demo-timer-value {
+  font-family: var(--mono);
+  color: var(--text-h);
+  margin: 0;
+}
+
+/* ---- Demo 内按钮 ---- */
+
+.demo-row button,
+.demo-panel button,
+.demo-case button,
+.demo-float button,
+.demo-timer button {
+  font: inherit;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--social-bg);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.demo-row button:hover:not(:disabled),
+.demo-case button:hover:not(:disabled),
+.demo-float button:hover:not(:disabled),
+.demo-timer button:hover:not(:disabled) {
+  border-color: var(--accent-border);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---- 14：绘制前测量并修正 ---- */
+
+.demo-measure {
+  position: relative;
+  height: 84px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.demo-measure-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  white-space: nowrap;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  color: var(--text-h);
+}
+
+.demo-measure.flipped .demo-measure-label {
+  white-space: normal;
+}
+
+/* ---- 26：Portal ---- */
+
+.demo-clip-root {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.demo-clip-box {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  height: 168px;
+  border: 2px dashed var(--accent-border);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.demo-float {
+  position: absolute;
+  top: 56px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: var(--bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  color: var(--text-h);
+}
+
+.demo-float p {
+  margin: 0;
+}
+
+.demo-portal-host {
+  position: fixed;
+  top: 140px;
+  right: 24px;
+  z-index: 50;
+}
